@@ -75,6 +75,9 @@
     <button onclick="loadDarshan('Shirdi Sai Baba', 'UCfabWGLn8OmV7zOEIKReDIg')">Shirdi Sai Baba</button>
     <button onclick="loadDarshan('Pandharpur Vitthal-Rukmini', 'UCCunHgsT7Hhogo40FHbhfDg')">Pandharpur Vitthal-Rukmini</button>
     <button onclick="loadDarshan('Barsana Radha Rani', 'UCzFclcsWPB-wk8dwKF1aqKQ')">Barsana Radha Rani </button>
+    <p style="text-align:center; font-size:0.9em; color:#555; margin-top:20px;">
+  If you see "Sign in to confirm you're not a bot", please sign in to your Google account in the player (one-time verification). This is a YouTube security check — streams work normally afterward. 🙏
+</p>
     <!-- Add more buttons here as needed -->
   </div>
 
@@ -121,7 +124,7 @@ function loadDarshan(title, channelId) {
   titleEl.textContent = title + ' Live Darshan';
 
   // Load the embed
-  frame.src = `https://www.youtube-nocookie.com/embed/live_stream?channel=${channelId}&autoplay=1&mute=0&rel=0`;
+  frame.src = `https://www.youtube.com/embed/live_stream?channel=${channelId}&autoplay=1&mute=0&rel=0`;
 
   // Show container
   container.style.display = 'block';
