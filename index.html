@@ -96,7 +96,10 @@
 
       container.style.display = 'block';
       container.scrollIntoView({ behavior: 'smooth' });
-    }
+    } else {
+  // Specific video ID for dedicated or targeted streams
+  frame.src = `https://www.youtube-nocookie.com/embed/${identifier}?autoplay=1&mute=0&rel=0&modestbranding=1`;
+}
 
     function closeDarshan() {
       const frame = document.getElementById('darshanFrame');
