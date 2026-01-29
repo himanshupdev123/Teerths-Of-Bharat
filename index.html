@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Teerth Darshan - One-Click Access</title>
+  <style>
+    body { 
+      font-family: 'Segoe UI', Arial, sans-serif; 
+      background: #f5f5f5; 
+      margin: 0; 
+      padding: 20px; 
+      color: #333; 
+    }
+    h1 { text-align: center; color: #b22222; margin-bottom: 10px; }
+    p { text-align: center; margin-bottom: 30px; }
+    .buttons { 
+      display: flex; 
+      flex-wrap: wrap; 
+      justify-content: center; 
+      gap: 15px; 
+      margin-bottom: 30px; 
+    }
+    .buttons button { 
+      padding: 12px 20px; 
+      font-size: 16px; 
+      background: #d32f2f; 
+      color: white; 
+      border: none; 
+      border-radius: 8px; 
+      cursor: pointer; 
+      transition: background 0.3s; 
+    }
+    .buttons button:hover { background: #b71c1c; }
+    #videoContainer { 
+      display: none; 
+      max-width: 900px; 
+      margin: 0 auto; 
+      background: white; 
+      padding: 15px; 
+      border-radius: 10px; 
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+    }
+    #darshanTitle { text-align: center; margin: 10px 0; font-size: 1.5em; color: #333; }
+    .video-wrapper { 
+      position: relative; 
+      padding-bottom: 56.25%; /* 16:9 ratio */ 
+      height: 0; 
+      overflow: hidden; 
+    }
+    .video-wrapper iframe { 
+      position: absolute; 
+      top: 0; left: 0; 
+      width: 100%; height: 100%; 
+    }
+    #closeBtn { 
+      display: block; 
+      margin: 15px auto; 
+      padding: 10px 20px; 
+      background: #757575; 
+      color: white; 
+      border: none; 
+      border-radius: 6px; 
+      cursor: pointer; 
+    }
+  </style>
+</head>
+<body>
+  <h1>Live Darshan: Click to Experience Teerth</h1>
+  <p>Open one at a time for smooth viewing. Streams are from reliable/official channels — live when broadcasting.</p>
+
+  <div class="buttons">
+    <button onclick="loadDarshan('Shirdi Sai Baba', 'UCfabWGLn8OmV7zOEIKReDIg')">Shirdi Sai Baba</button>
+    <button onclick="loadDarshan('Jagannath Puri', 'UCET-LB-LgAuDS-Cy8nfH4-w')">Jagannath Puri</button>
+    <button onclick="loadDarshan('Pandharpur Vitthal-Rukmini', 'UCSdHqlW8T6JiVcgFzOjz_8Q')">Pandharpur Vitthal-Rukmini</button>
+    <!-- Add more buttons here as needed -->
+  </div>
+
+  <div id="videoContainer">
+    <div id="darshanTitle"></div>
+    <div class="video-wrapper">
+      <iframe id="darshanFrame" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <button id="closeBtn" onclick="closeDarshan()">Close Darshan</button>
+  </div>
+
+  <script>
+    function loadDarshan(title, channelId) {
+      const frame = document.getElementById('darshanFrame');
+      const container = document.getElementById('videoContainer');
+      const titleEl = document.getElementById('darshanTitle');
+
+      titleEl.textContent = title + ' Live Darshan';
+      frame.src = `https://www.youtube.com/embed/live_stream?channel=${channelId}&autoplay=1&mute=0`;
+
+      container.style.display = 'block';
+      container.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function closeDarshan() {
+      const frame = document.getElementById('darshanFrame');
+      const container = document.getElementById('videoContainer');
+      frame.src = ''; 
+      container.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
